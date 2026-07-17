@@ -1,17 +1,12 @@
-# AIROTHIX HTML v1.4 — Imágenes integradas
+# AIROTHIX HTML v1.5
 
-Esta versión mantiene HTML/CSS/JavaScript, pero el logo y el banner están
-integrados directamente en `index.html` como Data URI (base64).
+Mejora principal:
+- Se unificaron AIROTHIX Method y Roadmap de tiempos.
+- Se eliminó la sección extensa separada.
+- La misma línea de tiempo ahora muestra etapa, duración y objetivo.
+- La web queda más breve y directa.
 
-No depende de:
-- carpetas assets
-- rutas de imágenes
-- archivos JPG separados
-- configuración especial de Vercel
-
-## Archivos a subir a GitHub
+Archivos:
 - index.html
 - vercel.json
 - README.md
-
-Sube estos tres archivos directamente a la raíz del repositorio.

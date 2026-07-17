@@ -226,6 +226,40 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
 .delivery-summary strong{font-size:1.15rem;color:var(--cyan)}
 @media(max-width:680px){.delivery-timeline::before{left:17px}.delivery-step{grid-template-columns:0 35px 1fr;gap:5px}.delivery-number{display:none}.delivery-content{padding:21px}.delivery-summary{grid-template-columns:1fr}}
 
+
+.timeline-with-time .step-time{
+  display:block;
+  margin:8px 0 9px;
+  color:var(--cyan);
+  font-size:.76rem;
+  font-weight:900;
+}
+.method-summary{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:42px;
+}
+.method-summary div{
+  padding:19px 21px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:rgba(9,23,48,.72);
+}
+.method-summary span{
+  display:block;
+  color:var(--muted);
+  font-size:.78rem;
+  margin-bottom:6px;
+}
+.method-summary strong{
+  color:var(--cyan);
+  font-size:1.05rem;
+}
+@media(max-width:680px){
+  .method-summary{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -240,7 +274,6 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       <nav class="nav-links">
         <a href="#soluciones">Soluciones</a>
         <a href="#metodo">Método</a>
-        <a href="#tiempos">Tiempos</a>
         <a href="#diagnostico">Diagnóstico</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto" class="nav-cta">Hablemos</a>
@@ -357,50 +390,69 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       </div>
     </section>
 
-    <section class="section method-section" id="metodo">
-      <div class="container">
-        <div class="section-head compact">
-          <span class="eyebrow">AIROTHIX METHOD</span>
-          <h2>Una metodología diseñada para entregar excelencia de forma consistente.</h2>
-        </div>
-        <div class="timeline">
-          <div class="step active"><span>01</span><h3>Descubrir</h3><p>Conocemos el negocio y sus objetivos.</p></div>
-          <div class="step"><span>02</span><h3>Diagnosticar</h3><p>Identificamos brechas y oportunidades.</p></div>
-          <div class="step"><span>03</span><h3>Diseñar</h3><p>Definimos experiencia, solución y arquitectura.</p></div>
-          <div class="step"><span>04</span><h3>Desarrollar</h3><p>Construimos con calidad y trazabilidad.</p></div>
-          <div class="step"><span>05</span><h3>Validar</h3><p>Probamos antes de implementar.</p></div>
-          <div class="step"><span>06</span><h3>Implementar</h3><p>Capacitamos y acompañamos la puesta en marcha.</p></div>
-          <div class="step"><span>07</span><h3>Evolucionar</h3><p>Medimos, aprendemos y mejoramos.</p></div>
-        </div>
+    
+<section class="section method-section" id="metodo">
+  <div class="container">
+    <div class="section-head compact">
+      <span class="eyebrow">AIROTHIX METHOD</span>
+      <h2>Una metodología clara, con etapas y tiempos estimados.</h2>
+      <p>Cada proyecto se planifica según su alcance y complejidad. Al inicio entregamos un cronograma formal con hitos, responsables y fechas comprometidas.</p>
+    </div>
+
+    <div class="timeline timeline-with-time">
+      <div class="step active">
+        <span>01</span>
+        <h3>Descubrir</h3>
+        <strong class="step-time">2–5 días</strong>
+        <p>Conocemos el negocio, sus objetivos, usuarios y desafíos.</p>
       </div>
-    </section>
-
-
-    <section class="section delivery-section" id="tiempos">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">ROADMAP DE DESARROLLO</span>
-          <h2>Así construimos tu proyecto, etapa por etapa.</h2>
-          <p>Los plazos se ajustan al alcance, complejidad y tiempos de retroalimentación. Al iniciar, AIROTHIX entrega un cronograma formal con hitos y fechas comprometidas.</p>
-        </div>
-        <div class="delivery-timeline">
-          <article class="delivery-step"><span class="delivery-number">01</span><div class="delivery-dot"></div><div class="delivery-content"><div class="delivery-time">2–5 días hábiles</div><h3>Descubrimiento y análisis</h3><p>Comprendemos el negocio, objetivos, usuarios y problema a resolver.</p><ul><li>Reunión inicial</li><li>Objetivos</li><li>Alcance</li><li>Diagnóstico</li></ul></div></article>
-          <article class="delivery-step"><span class="delivery-number">02</span><div class="delivery-dot"></div><div class="delivery-content"><div class="delivery-time">2–4 días hábiles</div><h3>Requerimientos y planificación</h3><p>Definimos funcionalidades, arquitectura, riesgos, prioridades y plan de ejecución.</p><ul><li>Requerimientos</li><li>Arquitectura</li><li>Backlog</li><li>Cronograma</li></ul></div></article>
-          <article class="delivery-step"><span class="delivery-number">03</span><div class="delivery-dot"></div><div class="delivery-content"><div class="delivery-time">5–10 días hábiles</div><h3>Diseño UX/UI y prototipo</h3><p>Diseñamos experiencia, navegación e interfaz antes del desarrollo.</p><ul><li>Wireframes</li><li>Diseño visual</li><li>Prototipo</li><li>Aprobación</li></ul></div></article>
-          <article class="delivery-step"><span class="delivery-number">04</span><div class="delivery-dot"></div><div class="delivery-content"><div class="delivery-time">2–6 semanas</div><h3>Desarrollo e integraciones</h3><p>Construimos frontend, backend, base de datos e integraciones.</p><ul><li>Frontend</li><li>Backend</li><li>APIs</li><li>Base de datos</li></ul></div></article>
-          <article class="delivery-step"><span class="delivery-number">05</span><div class="delivery-dot"></div><div class="delivery-content"><div class="delivery-time">3–5 días hábiles</div><h3>Pruebas y control de calidad</h3><p>Validamos funcionamiento, rendimiento, compatibilidad y experiencia.</p><ul><li>QA funcional</li><li>Responsive</li><li>Correcciones</li><li>Validación</li></ul></div></article>
-          <article class="delivery-step"><span class="delivery-number">06</span><div class="delivery-dot"></div><div class="delivery-content"><div class="delivery-time">1–2 días hábiles</div><h3>Implementación y capacitación</h3><p>Publicamos, configuramos el entorno y capacitamos a los responsables.</p><ul><li>Publicación</li><li>Configuración</li><li>Capacitación</li><li>Documentación</li></ul></div></article>
-          <article class="delivery-step"><span class="delivery-number">07</span><div class="delivery-dot"></div><div class="delivery-content"><div class="delivery-time">Continuo</div><h3>Soporte y evolución</h3><p>Medimos resultados e incorporamos mejoras según la evolución del negocio.</p><ul><li>Soporte</li><li>Mantenimiento</li><li>Optimización</li><li>Nuevas versiones</li></ul></div></article>
-        </div>
-        <div class="delivery-summary">
-          <div><span>Proyecto web corporativo</span><strong>3–6 semanas</strong></div>
-          <div><span>Plataforma con CRM o automatización</span><strong>6–12 semanas</strong></div>
-          <div><span>Solución enterprise a medida</span><strong>Según alcance</strong></div>
-        </div>
+      <div class="step">
+        <span>02</span>
+        <h3>Diagnosticar</h3>
+        <strong class="step-time">2–4 días</strong>
+        <p>Identificamos brechas, riesgos, oportunidades y prioridades.</p>
       </div>
-    </section>
+      <div class="step">
+        <span>03</span>
+        <h3>Diseñar</h3>
+        <strong class="step-time">5–10 días</strong>
+        <p>Definimos UX/UI, arquitectura y prototipo de la solución.</p>
+      </div>
+      <div class="step">
+        <span>04</span>
+        <h3>Desarrollar</h3>
+        <strong class="step-time">2–6 semanas</strong>
+        <p>Construimos frontend, backend, datos e integraciones.</p>
+      </div>
+      <div class="step">
+        <span>05</span>
+        <h3>Validar</h3>
+        <strong class="step-time">3–5 días</strong>
+        <p>Ejecutamos pruebas, correcciones y validación funcional.</p>
+      </div>
+      <div class="step">
+        <span>06</span>
+        <h3>Implementar</h3>
+        <strong class="step-time">1–2 días</strong>
+        <p>Publicamos, configuramos y capacitamos a los usuarios.</p>
+      </div>
+      <div class="step">
+        <span>07</span>
+        <h3>Evolucionar</h3>
+        <strong class="step-time">Continuo</strong>
+        <p>Medimos resultados, damos soporte y mejoramos la solución.</p>
+      </div>
+    </div>
 
-    <section class="section diagnostic-section" id="diagnostico">
+    <div class="method-summary">
+      <div><span>Web corporativa</span><strong>3–6 semanas</strong></div>
+      <div><span>CRM o automatización</span><strong>6–12 semanas</strong></div>
+      <div><span>Enterprise a medida</span><strong>Según alcance</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="section diagnostic-section" id="diagnostico">
       <div class="container diagnostic-grid">
         <div class="diagnostic-copy">
           <span class="eyebrow">DIAGNÓSTICO DIGITAL</span>
