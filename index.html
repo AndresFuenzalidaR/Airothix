@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIROTHIX | Engineering Digital Growth</title>
+  <meta name="author" content="AIROTHIX">
+  <meta name="contact" content="contacto@airothix.cl">
+  <meta property="og:site_name" content="AIROTHIX">
+  <meta property="og:url" content="https://www.airothix.cl/">
+
   <meta name="description" content="AIROTHIX diseña soluciones digitales, automatizaciones, CRM, analítica e inteligencia artificial para empresas que buscan crecer." />
   <meta name="theme-color" content="#020814" />
   <meta property="og:title" content="AIROTHIX | Engineering Digital Growth" />
@@ -681,6 +686,75 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   .method-right{gap:14px}
 }
 
+
+/* === AIROTHIX V3.0 · CORREO CORPORATIVO === */
+.footer-email{
+  display:inline-flex;
+  margin-top:14px;
+  color:#a9d9ff;
+  font-weight:700;
+  text-decoration:none;
+  transition:color .25s ease, text-shadow .25s ease;
+}
+.footer-email:hover{
+  color:#fff;
+  text-shadow:0 0 18px rgba(42,168,255,.65);
+}
+
+
+/* === AIROTHIX v3.1 · FORMULARIO AUTOMÁTICO === */
+.contact-honeypot{
+  position:absolute!important;
+  left:-10000px!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+}
+.contact-submit{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-width:190px;
+}
+.contact-submit:disabled{
+  cursor:wait;
+  opacity:.78;
+}
+.submit-spinner{
+  display:none;
+  width:18px;
+  height:18px;
+  border:2px solid rgba(255,255,255,.35);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:contactSpin .75s linear infinite;
+}
+.contact-submit.loading .submit-spinner{display:inline-block}
+.contact-status{
+  min-height:24px;
+  margin:12px 0 0;
+  padding:0;
+  font-weight:700;
+  line-height:1.5;
+}
+.contact-status.success{
+  color:#73f0c2;
+  padding:12px 14px;
+  border:1px solid rgba(66,230,178,.28);
+  border-radius:12px;
+  background:rgba(20,118,91,.12);
+}
+.contact-status.error{
+  color:#ff9caa;
+  padding:12px 14px;
+  border:1px solid rgba(255,96,118,.28);
+  border-radius:12px;
+  background:rgba(145,25,48,.13);
+}
+@keyframes contactSpin{to{transform:rotate(360deg)}}
+
 </style>
 </head>
 <body>
@@ -986,17 +1060,28 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
           <span class="eyebrow">CONVERSEMOS</span>
           <h2>Cuéntanos qué quieres transformar.</h2>
           <p>Describe brevemente tu desafío y prepararemos el primer contacto con AIROTHIX.</p>
-          <a class="email-link" href="mailto:hola@airothix.cl">hola@airothix.cl</a>
+          <a class="email-link" href="mailto:contacto@airothix.cl">contacto@airothix.cl</a>
         </div>
 
-        <form id="contact-form" class="contact-form">
+        <form id="contact-form" class="contact-form" novalidate>
           <div class="field-row">
-            <label>Nombre<input id="name" type="text" required /></label>
-            <label>Empresa<input id="company" type="text" /></label>
+            <label>Nombre
+              <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required />
+            </label>
+            <label>Empresa
+              <input id="company" name="company" type="text" autocomplete="organization" maxlength="120" />
+            </label>
           </div>
-          <label>Correo<input id="email" type="email" required /></label>
+          <div class="field-row">
+            <label>Correo
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="160" required />
+            </label>
+            <label>Teléfono
+              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="+56 9..." />
+            </label>
+          </div>
           <label>¿Qué necesitas?
-            <select id="need" required>
+            <select id="need" name="need" required>
               <option value="">Selecciona una opción</option>
               <option>Crear o mejorar un sitio web</option>
               <option>Implementar un CRM</option>
@@ -1006,8 +1091,19 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
               <option>Otro desafío</option>
             </select>
           </label>
-          <label>Mensaje<textarea id="message" rows="5"></textarea></label>
-          <button class="btn btn-primary" type="submit">Preparar solicitud</button>
+          <label>Mensaje
+            <textarea id="message" name="message" rows="5" maxlength="3000" required></textarea>
+          </label>
+
+          <div class="contact-honeypot" aria-hidden="true">
+            <label>Sitio web<input id="website" name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <button id="contact-submit" class="btn btn-primary contact-submit" type="submit">
+            <span class="submit-label">Enviar solicitud</span>
+            <span class="submit-spinner" aria-hidden="true"></span>
+          </button>
+          <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -1019,7 +1115,8 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       <p>© <span id="year"></span> AIROTHIX. Engineering Digital Growth.</p>
       <a href="#inicio">Volver arriba ↑</a>
     </div>
-  </footer>
+  <a class="footer-email" href="mailto:contacto@airothix.cl">contacto@airothix.cl</a>
+</footer>
 
   <script>
 
@@ -1077,16 +1174,63 @@ blocks.forEach((block, index) => {
   });
 });
 
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const company = document.getElementById('company').value;
-  const email = document.getElementById('email').value;
-  const need = document.getElementById('need').value;
-  const message = document.getElementById('message').value;
-  const subject = encodeURIComponent(`Solicitud AIROTHIX - ${need}`);
-  const body = encodeURIComponent(`Nombre: ${name}\nEmpresa: ${company}\nCorreo: ${email}\nNecesidad: ${need}\n\nMensaje:\n${message}`);
-  window.location.href = `mailto:hola@airothix.cl?subject=${subject}&body=${body}`;
+document.getElementById('contact-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const submitButton = document.getElementById('contact-submit');
+  const status = document.getElementById('contact-status');
+  const label = submitButton.querySelector('.submit-label');
+
+  status.className = 'contact-status';
+  status.textContent = '';
+
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    status.classList.add('error');
+    status.textContent = 'Revisa los campos obligatorios antes de enviar.';
+    return;
+  }
+
+  const payload = {
+    name: document.getElementById('name').value.trim(),
+    company: document.getElementById('company').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    need: document.getElementById('need').value,
+    message: document.getElementById('message').value.trim(),
+    website: document.getElementById('website').value
+  };
+
+  submitButton.disabled = true;
+  submitButton.classList.add('loading');
+  label.textContent = 'Enviando...';
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(result.message || 'No fue posible enviar la solicitud.');
+    }
+
+    form.reset();
+    status.classList.add('success');
+    status.textContent = '¡Gracias por contactarnos! Recibimos tu solicitud y te responderemos a la brevedad.';
+  } catch (error) {
+    console.error(error);
+    status.classList.add('error');
+    status.textContent = error.message || 'Ocurrió un error. Escríbenos a contacto@airothix.cl.';
+  } finally {
+    submitButton.disabled = false;
+    submitButton.classList.remove('loading');
+    label.textContent = 'Enviar solicitud';
+  }
 });
 
 </script>
