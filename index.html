@@ -93,7 +93,7 @@ button,input,select,textarea{font:inherit}
 .nav-cta{padding:12px 18px;border-radius:12px;background:linear-gradient(135deg,#11254b,#1a4279);border:1px solid rgba(214,197,155,.14);color:#fff!important;font-weight:800;box-shadow:0 14px 34px rgba(0,0,0,.18)}
 .menu-toggle{display:none;border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;padding:8px 12px}
 
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:135px 0 80px;overflow:hidden}
+.hero{position:relative;min-height:clamp(760px,88vh,920px);display:flex;align-items:center;padding:118px 0 48px;overflow:hidden}
 .hero-backdrop{
   position:absolute;inset:0;z-index:-1;
   background:
@@ -105,12 +105,12 @@ button,input,select,textarea{font:inherit}
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 70%,var(--bg));
 }
-.hero-content{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
+.hero-content{display:grid;grid-template-columns:minmax(0,.92fr) minmax(360px,1.08fr);gap:36px;align-items:start}
 .eyebrow{font-size:.75rem;letter-spacing:.2em;color:var(--gold);font-weight:900}
 .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(214,197,155,.18);background:rgba(255,255,255,.02)}
 .hero-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(214,197,155,.35)}
 .hero h1,.section h2{letter-spacing:-.045em;line-height:1.03;margin:14px 0 22px}
-.hero h1{font-size:clamp(3.3rem,6vw,6.2rem);max-width:830px}
+.hero h1{font-size:clamp(2.7rem,4.6vw,4.8rem);max-width:650px}
 .hero h1 span{background:linear-gradient(90deg,#dfe7f7,#8fb5ff);background-clip:text;-webkit-background-clip:text;color:transparent}
 .hero-copy>p{font-size:1.18rem;line-height:1.7;color:#c1cbe0;max-width:720px}
 .hero-inline-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
@@ -126,22 +126,22 @@ button,input,select,textarea{font:inherit}
 .hero-signature strong{display:block;font-size:1rem;color:#edf5ff}
 .hero-signature span{display:block;color:#9fb0c7;font-size:.88rem;line-height:1.6}
 .hero-signature-mark{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(31,48,80,.8),rgba(14,24,41,.96));border:1px solid rgba(214,197,155,.18);color:var(--gold);font-weight:900;font-size:1.1rem}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 42px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0 28px}
 .btn{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:0 24px;border-radius:14px;font-weight:850;border:1px solid transparent;cursor:pointer;transition:.25s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn-primary{background:linear-gradient(135deg,#102549,#1a4277);border-color:rgba(214,197,155,.12);box-shadow:0 14px 40px rgba(0,0,0,.22)}
 .btn-secondary{background:rgba(4,12,28,.58);border-color:rgba(214,197,155,.18);backdrop-filter:blur(10px)}
-.hero-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hero-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
 .hero-proof div{border-top:1px solid rgba(255,255,255,.18);padding-top:16px}
 .hero-proof strong{display:block;color:var(--cyan);font-size:.76rem;margin-bottom:7px}
 .hero-proof span{font-size:.82rem;color:#b8c5dc}
-.hero-visual{position:relative;min-height:480px}
-.hero-visual>img{position:absolute;inset:60px 0 auto 0;border-radius:26px;box-shadow:var(--shadow);border:1px solid rgba(100,180,255,.22);transform:perspective(1100px) rotateY(-7deg) rotateX(2deg)}
+.hero-visual{position:relative;min-height:410px}
+.hero-visual>img{position:absolute;inset:34px 0 auto 0;border-radius:26px;box-shadow:var(--shadow);border:1px solid rgba(100,180,255,.22);transform:perspective(1100px) rotateY(-7deg) rotateX(2deg)}
 .glass-card{position:absolute;padding:18px 20px;border-radius:18px;background:rgba(6,18,40,.72);border:1px solid rgba(75,182,255,.25);backdrop-filter:blur(18px);box-shadow:0 20px 50px rgba(0,0,0,.28)}
 .glass-card span,.glass-card small{display:block;color:#aebbd2;font-size:.72rem}
 .glass-card strong{display:block;font-size:1.8rem;color:var(--cyan);margin:5px 0}
 .glass-a{right:-10px;top:20px}.glass-b{left:-25px;bottom:30px}
-.hero-conversion-card{position:absolute;right:18px;bottom:-25px;max-width:300px;padding:20px 22px;border-radius:22px;background:linear-gradient(180deg,rgba(8,21,45,.94),rgba(4,11,24,.98));border:1px solid rgba(24,213,255,.22);box-shadow:0 22px 50px rgba(0,0,0,.34)}
+.hero-conversion-card{position:absolute;right:18px;bottom:8px;max-width:300px;padding:20px 22px;border-radius:22px;background:linear-gradient(180deg,rgba(8,21,45,.94),rgba(4,11,24,.98));border:1px solid rgba(24,213,255,.22);box-shadow:0 22px 50px rgba(0,0,0,.34)}
 .hero-conversion-card span{display:block;color:var(--cyan);font-size:.72rem;letter-spacing:.18em;font-weight:900;margin-bottom:8px}
 .hero-conversion-card h3{margin:0 0 10px;font-size:1.15rem;line-height:1.35}
 .hero-conversion-card p{margin:0 0 14px;color:#b9c9df;font-size:.9rem;line-height:1.6}
@@ -274,8 +274,9 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
   .nav-links{display:none;position:absolute;top:84px;left:0;right:0;background:#041022;padding:25px;flex-direction:column;border-bottom:1px solid var(--line)}
   .nav-links.open{display:flex}
   .hero-content,.diagnostic-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
-  .hero-visual{min-height:420px}
-  .hero-conversion-card{position:relative;right:auto;bottom:auto;max-width:none;margin-top:300px}
+  .hero{min-height:auto;padding:112px 0 42px}
+  .hero-visual{min-height:360px}
+  .hero-conversion-card{position:relative;right:auto;bottom:auto;max-width:none;margin-top:230px}
   .timeline{grid-template-columns:repeat(2,1fr)}
   .timeline::before{display:none}
   .footer-shell{grid-template-columns:1fr}
@@ -283,7 +284,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
 }
 @media(max-width:680px){
   .container{width:min(calc(100% - 26px),var(--max))}
-  .hero{padding-top:120px}
+  .hero{padding:108px 0 34px}
   .hero h1{font-size:2.8rem}
   .hero-actions{flex-direction:column}
   .btn{width:100%}
@@ -292,10 +293,10 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
   .trust-grid div{border-right:0;border-bottom:1px solid var(--line);padding:16px 0}
   .card-featured{grid-column:auto}
   .timeline{grid-template-columns:1fr}
-  .hero-visual{min-height:310px}
-  .hero-visual>img{inset:35px 0 auto}
+  .hero-visual{min-height:280px}
+  .hero-visual>img{inset:16px 0 auto}
   .glass-a{right:0}.glass-b{left:0;bottom:5px}
-  .hero-conversion-card{margin-top:225px;padding:18px}
+  .hero-conversion-card{margin-top:170px;padding:18px}
   .hero-signature{align-items:flex-start}
 }
 
@@ -885,10 +886,10 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
       <div class="container hero-content">
         <div class="hero-copy">
           <div class="eyebrow hero-badge">ENGINEERING DIGITAL GROWTH</div>
-          <h1>Arquitectura digital, automatización e inteligencia aplicada para compañías que exigen <span>crecimiento con control.</span></h1>
+          <h1>Arquitectura digital para compañías que exigen <span>control y escala.</span></h1>
           <p>
-            Diseñamos y ejecutamos sistemas digitales a medida para organizaciones que necesitan ordenar su operación,
-            elevar su experiencia comercial y escalar con una base tecnológica seria.
+            Diseñamos sistemas digitales a medida para ordenar la operación, fortalecer la experiencia comercial
+            y escalar con una base tecnológica seria.
           </p>
           <div class="hero-inline-points" aria-label="Beneficios principales AIROTHIX">
             <span>Dirección estratégica</span>
@@ -902,7 +903,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
           <div class="hero-microcopy">Diagnóstico ejecutivo, alcance claro y ejecución disciplinada.</div>
           <div class="hero-offer">
             <strong>Convertimos complejidad digital en decisiones nítidas.</strong>
-            <p>Intervenimos procesos, experiencia, datos y automatización con una lectura integral del negocio, sin sobrecargar el proyecto con capas innecesarias.</p>
+            <p>Ordenamos procesos, experiencia y datos con una lectura integral del negocio, sin sobrecargar la solución.</p>
             <ul>
               <li>Evaluación inicial con foco en prioridades reales.</li>
               <li>Propuesta alineada a operación, presupuesto y escala.</li>
