@@ -35,11 +35,14 @@
   --panel:#0a1730;
   --panel-2:#0d1d3b;
   --line:rgba(70,152,255,.18);
+  --line-soft:rgba(214,197,155,.16);
   --text:#f3f7ff;
   --muted:#aab7cf;
   --cyan:#18d5ff;
   --blue:#1d78ff;
   --deep:#1238d8;
+  --gold:#d6c59b;
+  --gold-soft:#9f9173;
   --white:#fff;
   --radius:24px;
   --max:1200px;
@@ -60,8 +63,8 @@ body::before{
   inset:0;
   pointer-events:none;
   background:
-    radial-gradient(circle at 20% 15%,rgba(24,213,255,.07),transparent 25%),
-    radial-gradient(circle at 80% 20%,rgba(29,120,255,.08),transparent 28%);
+    radial-gradient(circle at 20% 15%,rgba(214,197,155,.05),transparent 25%),
+    radial-gradient(circle at 80% 20%,rgba(29,120,255,.05),transparent 28%);
   z-index:-2;
 }
 .noise{
@@ -75,15 +78,19 @@ button,input,select,textarea{font:inherit}
 
 .header{
   position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(2,8,20,.72);
+  background:rgba(2,8,20,.78);
   backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid rgba(214,197,155,.08);
 }
 .nav{height:84px;display:flex;align-items:center;justify-content:space-between}
-.brand img{width:72px;height:72px;object-fit:cover;border-radius:50%}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark img{width:64px;height:64px;object-fit:cover;border-radius:50%}
+.brand-copy{display:flex;flex-direction:column;gap:2px}
+.brand-copy strong{font-size:.92rem;letter-spacing:.16em;color:#eef5ff}
+.brand-copy span{font-size:.72rem;color:#a99978;letter-spacing:.08em}
 .nav-links{display:flex;align-items:center;gap:30px;color:#d8e1f4;font-size:.92rem}
-.nav-links a:hover{color:var(--cyan)}
-.nav-cta{padding:12px 18px;border-radius:12px;background:linear-gradient(135deg,var(--deep),var(--cyan));color:#fff!important;font-weight:800}
+.nav-links a:hover{color:#e8dcc0}
+.nav-cta{padding:12px 18px;border-radius:12px;background:linear-gradient(135deg,#11254b,#1a4279);border:1px solid rgba(214,197,155,.14);color:#fff!important;font-weight:800;box-shadow:0 14px 34px rgba(0,0,0,.18)}
 .menu-toggle{display:none;border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;padding:8px 12px}
 
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:135px 0 80px;overflow:hidden}
@@ -99,25 +106,31 @@ button,input,select,textarea{font:inherit}
   background:linear-gradient(180deg,transparent 70%,var(--bg));
 }
 .hero-content{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
-.eyebrow{font-size:.75rem;letter-spacing:.2em;color:var(--cyan);font-weight:900}
+.eyebrow{font-size:.75rem;letter-spacing:.2em;color:var(--gold);font-weight:900}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(214,197,155,.18);background:rgba(255,255,255,.02)}
+.hero-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(214,197,155,.35)}
 .hero h1,.section h2{letter-spacing:-.045em;line-height:1.03;margin:14px 0 22px}
 .hero h1{font-size:clamp(3.3rem,6vw,6.2rem);max-width:830px}
-.hero h1 span{background:linear-gradient(90deg,#63b3ff,var(--cyan));background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero h1 span{background:linear-gradient(90deg,#dfe7f7,#8fb5ff);background-clip:text;-webkit-background-clip:text;color:transparent}
 .hero-copy>p{font-size:1.18rem;line-height:1.7;color:#c1cbe0;max-width:720px}
 .hero-inline-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.hero-inline-points span{padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#d9e8ff;font-size:.8rem;font-weight:700}
-.hero-microcopy{margin-top:14px;color:#94b7df;font-size:.92rem;font-weight:700}
-.hero-offer{margin-top:28px;max-width:620px;padding:18px 20px;border-radius:18px;border:1px solid rgba(24,213,255,.16);background:linear-gradient(180deg,rgba(8,23,50,.9),rgba(5,14,30,.94));box-shadow:0 18px 40px rgba(0,0,0,.2)}
+.hero-inline-points span{padding:9px 14px;border-radius:999px;border:1px solid rgba(214,197,155,.12);background:rgba(255,255,255,.03);color:#d9e1ef;font-size:.8rem;font-weight:700}
+.hero-microcopy{margin-top:14px;color:#aeb8cb;font-size:.92rem;font-weight:700}
+.hero-offer{margin-top:28px;max-width:620px;padding:18px 20px;border-radius:18px;border:1px solid rgba(214,197,155,.12);background:linear-gradient(180deg,rgba(8,20,42,.88),rgba(5,12,25,.96));box-shadow:0 18px 40px rgba(0,0,0,.2)}
 .hero-offer strong{display:block;margin-bottom:10px;font-size:1rem;color:#eef6ff}
 .hero-offer p{margin:0 0 14px;color:#b8c9e4;font-size:.95rem;line-height:1.65}
 .hero-offer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 .hero-offer li{display:flex;align-items:flex-start;gap:10px;color:#dce9ff;font-size:.9rem;line-height:1.5}
-.hero-offer li::before{content:"•";color:var(--cyan);font-weight:900;font-size:1rem;line-height:1.3}
+.hero-offer li::before{content:"•";color:var(--gold);font-weight:900;font-size:1rem;line-height:1.3}
+.hero-signature{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
+.hero-signature strong{display:block;font-size:1rem;color:#edf5ff}
+.hero-signature span{display:block;color:#9fb0c7;font-size:.88rem;line-height:1.6}
+.hero-signature-mark{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(31,48,80,.8),rgba(14,24,41,.96));border:1px solid rgba(214,197,155,.18);color:var(--gold);font-weight:900;font-size:1.1rem}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 42px}
 .btn{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:0 24px;border-radius:14px;font-weight:850;border:1px solid transparent;cursor:pointer;transition:.25s ease}
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:linear-gradient(135deg,var(--deep),var(--cyan));box-shadow:0 14px 40px rgba(29,120,255,.25)}
-.btn-secondary{background:rgba(4,12,28,.58);border-color:rgba(255,255,255,.18);backdrop-filter:blur(10px)}
+.btn-primary{background:linear-gradient(135deg,#102549,#1a4277);border-color:rgba(214,197,155,.12);box-shadow:0 14px 40px rgba(0,0,0,.22)}
+.btn-secondary{background:rgba(4,12,28,.58);border-color:rgba(214,197,155,.18);backdrop-filter:blur(10px)}
 .hero-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .hero-proof div{border-top:1px solid rgba(255,255,255,.18);padding-top:16px}
 .hero-proof strong{display:block;color:var(--cyan);font-size:.76rem;margin-bottom:7px}
@@ -149,6 +162,16 @@ button,input,select,textarea{font:inherit}
 .credibility-card strong{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;margin-bottom:18px;background:rgba(24,213,255,.08);border:1px solid rgba(24,213,255,.18);color:var(--cyan);font-size:1.15rem}
 .credibility-card h3{margin:0 0 10px;font-size:1.2rem}
 .credibility-card p{margin:0;color:var(--muted);line-height:1.7}
+
+.executive-section{padding:10px 0 92px;background:linear-gradient(180deg,#051122 0%,#061528 100%)}
+.executive-head{max-width:760px;margin:0 auto 34px;text-align:center}
+.executive-head p{margin:0;color:var(--muted);font-size:1.04rem;line-height:1.75}
+.executive-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.executive-card{padding:28px;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(10,24,50,.92),rgba(5,13,28,.98));position:relative;overflow:hidden}
+.executive-card::after{content:"";position:absolute;inset:auto -40px -40px auto;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(24,213,255,.18),transparent 68%)}
+.executive-card span{display:block;color:#88bbff;font-size:.72rem;letter-spacing:.16em;font-weight:900;margin-bottom:10px}
+.executive-card h3{margin:0 0 10px;font-size:1.2rem}
+.executive-card p{margin:0;color:var(--muted);line-height:1.7}
 
 .conversion-cta-section{padding:40px 0 92px;background:linear-gradient(180deg,#051122 0%,#04101f 100%)}
 .conversion-cta-box{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;padding:32px;border-radius:28px;border:1px solid rgba(24,213,255,.18);background:linear-gradient(135deg,rgba(11,29,62,.92),rgba(6,16,34,.98));box-shadow:0 24px 60px rgba(0,0,0,.24)}
@@ -234,10 +257,17 @@ input,select,textarea{width:100%;margin-top:8px;padding:14px 15px;border-radius:
 input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
 .form-note{margin:14px 0 0;color:#8fb2da;font-size:.88rem;line-height:1.6}
 
-footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
-.footer-grid{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
-.footer-grid img{width:64px;height:64px;object-fit:cover;border-radius:50%}
-.footer-grid p{text-align:center;font-size:.82rem}
+footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);background:linear-gradient(180deg,#020814,#040d1a)}
+.footer-shell{display:grid;grid-template-columns:1.15fr .7fr .9fr;gap:28px;align-items:start}
+.footer-brand{display:flex;gap:16px;align-items:flex-start}
+.footer-brand img{width:64px;height:64px;object-fit:cover;border-radius:50%}
+.footer-brand strong{display:block;margin-bottom:6px;color:#eef5ff;letter-spacing:.14em;font-size:.95rem}
+.footer-brand p{margin:0;color:#8fa4c2;line-height:1.7;font-size:.9rem}
+.footer-title{display:block;margin-bottom:12px;color:#eef5ff;font-size:.84rem;letter-spacing:.14em;font-weight:900}
+.footer-links,.footer-contact{display:grid;gap:10px}
+.footer-links a,.footer-contact a,.footer-contact span{color:#a6bdd9;font-size:.92rem}
+.footer-links a:hover,.footer-contact a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:#89a0be}
 
 @media(max-width:980px){
   .menu-toggle{display:block}
@@ -248,6 +278,8 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   .hero-conversion-card{position:relative;right:auto;bottom:auto;max-width:none;margin-top:300px}
   .timeline{grid-template-columns:repeat(2,1fr)}
   .timeline::before{display:none}
+  .footer-shell{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:680px){
   .container{width:min(calc(100% - 26px),var(--max))}
@@ -256,6 +288,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   .hero-actions{flex-direction:column}
   .btn{width:100%}
   .hero-proof,.trust-grid,.cards,.field-row{grid-template-columns:1fr}
+  .brand-copy span{display:none}
   .trust-grid div{border-right:0;border-bottom:1px solid var(--line);padding:16px 0}
   .card-featured{grid-column:auto}
   .timeline{grid-template-columns:1fr}
@@ -263,9 +296,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   .hero-visual>img{inset:35px 0 auto}
   .glass-a{right:0}.glass-b{left:0;bottom:5px}
   .hero-conversion-card{margin-top:225px;padding:18px}
-  .footer-grid{grid-template-columns:1fr;text-align:center}
-  .footer-grid p{text-align:center}
-  .footer-grid img{margin:auto}
+  .hero-signature{align-items:flex-start}
 }
 
 
@@ -393,21 +424,24 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
 .solutions-carousel{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:14px;
+  gap:16px;
 }
 .solution-mini-card{
   min-height:265px;
-  padding:22px 20px;
-  border-radius:16px;
+  padding:24px 22px;
+  border-radius:22px;
   border:1px solid var(--line);
   background:linear-gradient(180deg,rgba(10,23,48,.96),rgba(4,12,27,.98));
   transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+  position:relative;
+  overflow:hidden;
 }
 .solution-mini-card:hover{
   transform:translateY(-5px);
   border-color:rgba(24,213,255,.4);
   box-shadow:0 18px 40px rgba(0,0,0,.25);
 }
+.solution-mini-card::after{content:"";position:absolute;right:-32px;top:-32px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(24,213,255,.12),transparent 70%)}
 .solution-mini-icon{
   width:52px;
   height:52px;
@@ -422,9 +456,10 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   border:1px solid rgba(43,149,255,.36);
   box-shadow:0 0 24px rgba(17,118,255,.12) inset;
 }
+.solution-mini-tag{display:inline-flex;margin:0 0 16px;padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#a9d8ff;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .solution-mini-card h3{
   margin:0 0 12px;
-  font-size:1.05rem;
+  font-size:1.08rem;
 }
 .solution-mini-card p{
   min-height:88px;
@@ -825,7 +860,13 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   <header class="header">
     <div class="container nav">
       <a class="brand" href="#inicio" aria-label="AIROTHIX">
-        <img src="/images/logo.webp" alt="Logo oficial AIROTHIX" />
+        <div class="brand-mark">
+          <img src="/images/logo.webp" alt="Logo oficial AIROTHIX" />
+        </div>
+        <div class="brand-copy">
+          <strong>AIROTHIX</strong>
+          <span>Digital Systems for Growth</span>
+        </div>
       </a>
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
       <nav class="nav-links">
@@ -843,30 +884,37 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       <div class="hero-backdrop"></div>
       <div class="container hero-content">
         <div class="hero-copy">
-          <div class="eyebrow">ENGINEERING DIGITAL GROWTH</div>
-          <h1>Desarrollo web, automatización e IA para empresas que quieren <span>crecer más rápido.</span></h1>
+          <div class="eyebrow hero-badge">ENGINEERING DIGITAL GROWTH</div>
+          <h1>Arquitectura digital, automatización e inteligencia aplicada para compañías que exigen <span>crecimiento con control.</span></h1>
           <p>
-            Diseñamos soluciones digitales a medida para mejorar ventas, optimizar procesos y tomar mejores decisiones
-            con una base tecnológica clara, escalable y orientada a resultados reales.
+            Diseñamos y ejecutamos sistemas digitales a medida para organizaciones que necesitan ordenar su operación,
+            elevar su experiencia comercial y escalar con una base tecnológica seria.
           </p>
           <div class="hero-inline-points" aria-label="Beneficios principales AIROTHIX">
-            <span>Respuesta en menos de 24 horas</span>
-            <span>Soluciones a medida</span>
-            <span>Acompañamiento real</span>
+            <span>Dirección estratégica</span>
+            <span>Implementación rigurosa</span>
+            <span>Escala sostenible</span>
           </div>
           <div class="hero-actions">
             <a href="#diagnostico" class="btn btn-primary">Solicitar diagnóstico</a>
             <a href="#soluciones" class="btn btn-secondary">Ver soluciones</a>
           </div>
-          <div class="hero-microcopy">Diagnóstico inicial, propuesta clara y ejecución con foco en negocio.</div>
+          <div class="hero-microcopy">Diagnóstico ejecutivo, alcance claro y ejecución disciplinada.</div>
           <div class="hero-offer">
-            <strong>Te ayudamos a identificar el mejor siguiente paso, sin vueltas.</strong>
-            <p>Si hoy tu empresa necesita vender más, ordenar procesos o automatizar tareas, podemos orientarte con una recomendación inicial clara.</p>
+            <strong>Convertimos complejidad digital en decisiones nítidas.</strong>
+            <p>Intervenimos procesos, experiencia, datos y automatización con una lectura integral del negocio, sin sobrecargar el proyecto con capas innecesarias.</p>
             <ul>
-              <li>Primera respuesta en menos de 24 horas hábiles.</li>
-              <li>Diagnóstico preliminar para detectar prioridades reales.</li>
-              <li>Propuesta aterrizada según urgencia, presupuesto y objetivo.</li>
+              <li>Evaluación inicial con foco en prioridades reales.</li>
+              <li>Propuesta alineada a operación, presupuesto y escala.</li>
+              <li>Implementación pensada para continuidad y evolución.</li>
             </ul>
+          </div>
+          <div class="hero-signature">
+            <div class="hero-signature-mark">A</div>
+            <div>
+              <strong>Una sola mesa para estrategia, experiencia y tecnología.</strong>
+              <span>Diseño, automatización, CRM, analítica e implementación articulados con criterio ejecutivo.</span>
+            </div>
           </div>
           <div class="hero-proof">
             <div><strong>01</strong><span>Entendemos tu operación antes de proponer</span></div>
@@ -893,6 +941,36 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
             <p>Web, CRM, automatización, dashboards o IA aplicada: te ayudamos a priorizar sin sobredimensionar la solución.</p>
             <a href="#contacto">Solicitar conversación <span>↗</span></a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="executive-section" aria-labelledby="executive-title">
+      <div class="container">
+        <div class="executive-head">
+          <span class="eyebrow">ESTÁNDAR AIROTHIX</span>
+          <h2 id="executive-title">Lo que recibe tu empresa cuando el proyecto se aborda con un estándar ejecutivo.</h2>
+          <p>No se trata solo de diseño o desarrollo. Se trata de tomar buenas decisiones, reducir fricción y construir una base lista para sostener crecimiento.</p>
+        </div>
+
+        <div class="executive-grid">
+          <article class="executive-card">
+            <span>CLARIDAD</span>
+            <h3>Propuesta y alcance bien definidos</h3>
+            <p>Objetivos, prioridades, dependencias y próximos pasos explicados de forma simple para decidir con seguridad.</p>
+          </article>
+
+          <article class="executive-card">
+            <span>COHERENCIA</span>
+            <h3>Diseño, tecnología y operación alineados</h3>
+            <p>Cada decisión visual o técnica responde a una necesidad comercial, operativa o de escalabilidad.</p>
+          </article>
+
+          <article class="executive-card">
+            <span>CONTINUIDAD</span>
+            <h3>Una base lista para crecer</h3>
+            <p>Tu solución queda preparada para iterar, integrar nuevas herramientas y mejorar con el tiempo sin rehacer desde cero.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -941,13 +1019,14 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   <div class="container solutions-layout">
     <div class="solutions-intro">
       <span class="eyebrow">LO QUE HACEMOS</span>
-      <h2>Soluciones digitales<br><span>a la medida</span></h2>
-      <p>Combinamos tecnología, diseño y estrategia para crear soluciones que generan impacto real en tu negocio.</p>
-      <a href="#contacto" class="btn btn-primary solutions-main-cta">Conoce todos nuestros servicios <span>↗</span></a>
+      <h2>Capacidades digitales<br><span>para compañías en expansión</span></h2>
+      <p>Trabajamos sobre los puntos donde la experiencia, la operación y la información deben empezar a comportarse como un solo sistema.</p>
+      <a href="#contacto" class="btn btn-primary solutions-main-cta">Explorar una propuesta inicial <span>↗</span></a>
     </div>
 
     <div class="solutions-carousel" aria-label="Soluciones AIROTHIX">
       <article class="solution-mini-card">
+        <div class="solution-mini-tag">Presencia digital</div>
         <div class="solution-mini-icon">&lt;/&gt;</div>
         <h3>Desarrollo Web</h3>
         <p>Sitios y plataformas modernas, rápidas y escalables.</p>
@@ -955,6 +1034,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       </article>
 
       <article class="solution-mini-card">
+        <div class="solution-mini-tag">Eficiencia operativa</div>
         <div class="solution-mini-icon">⚙</div>
         <h3>Automatización</h3>
         <p>Optimizamos procesos y reducimos tareas repetitivas.</p>
@@ -962,6 +1042,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       </article>
 
       <article class="solution-mini-card">
+        <div class="solution-mini-tag">Datos y gestión</div>
         <div class="solution-mini-icon">↗</div>
         <h3>Inteligencia Digital</h3>
         <p>Convertimos datos en decisiones estratégicas.</p>
@@ -969,6 +1050,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       </article>
 
       <article class="solution-mini-card">
+        <div class="solution-mini-tag">Experiencia de cliente</div>
         <div class="solution-mini-icon">◉</div>
         <h3>Diseño UX/UI</h3>
         <p>Experiencias digitales claras, modernas y memorables.</p>
@@ -983,13 +1065,13 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
         <div class="conversion-cta-box">
           <div>
             <span class="eyebrow">SIGUIENTE PASO</span>
-            <h2 id="cta-title">Si ya sabes que algo debe mejorar, no necesitas partir solo.</h2>
-            <p>Podemos ayudarte a ordenar el problema, priorizar oportunidades y definir una solución realista para tu etapa actual.</p>
+            <h2 id="cta-title">Si la siguiente etapa exige más orden, más visibilidad o más integración, podemos estructurarla contigo.</h2>
+            <p>Definimos dónde intervenir primero, qué conviene implementar y cómo hacerlo sin perder claridad operativa ni foco comercial.</p>
             <div class="conversion-cta-actions">
-              <a href="#contacto" class="btn btn-primary">Quiero una propuesta inicial</a>
+              <a href="#contacto" class="btn btn-primary">Solicitar una propuesta inicial</a>
               <a href="#diagnostico" class="btn btn-secondary">Hacer diagnóstico ahora</a>
             </div>
-            <div class="conversion-cta-note">Sin compromiso. Solo una conversación útil para entender tu caso.</div>
+            <div class="conversion-cta-note">Una conversación útil para entender el contexto, el nivel de urgencia y el mejor siguiente paso.</div>
           </div>
           <ul class="conversion-cta-points">
             <li>Te ayudamos a identificar qué conviene resolver primero.</li>
@@ -1193,21 +1275,21 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       <div class="container contact-grid">
         <div class="contact-copy-panel">
           <span class="eyebrow">CONVERSEMOS</span>
-          <h2>Cuéntanos qué quieres transformar.</h2>
-          <p>Te ayudamos a ordenar, automatizar y escalar tus procesos con una propuesta clara, aterrizada y útil para tu negocio.</p>
+          <h2>Cuéntanos qué necesita evolucionar en tu operación.</h2>
+          <p>Si el desafío involucra experiencia digital, integración, automatización o visibilidad de datos, podemos ayudarte a estructurar una respuesta seria y aplicable.</p>
           <ul class="contact-benefits">
-            <li>Respuesta inicial en menos de 24 horas hábiles.</li>
-            <li>Diagnóstico preliminar sin costo para entender tu desafío.</li>
-            <li>Propuesta adaptada a tu empresa, industria y nivel de madurez digital.</li>
+            <li>Levantamiento inicial con foco en contexto y prioridad.</li>
+            <li>Recomendación sobre alcance, secuencia e implementación.</li>
+            <li>Propuesta alineada al nivel de madurez digital de tu empresa.</li>
           </ul>
           <a class="email-link" href="mailto:contacto@airothix.cl">contacto@airothix.cl</a>
-          <div class="contact-meta">Tus datos se utilizan solo para contactarte y preparar una orientación inicial.</div>
+          <div class="contact-meta">Tus datos se utilizan únicamente para evaluar el caso y coordinar una conversación inicial.</div>
         </div>
 
         <form id="contact-form" class="contact-form" novalidate>
           <div class="contact-form-head">
-            <h3>Solicita una primera conversación</h3>
-            <p>Cuéntanos brevemente tu desafío y te responderemos con una orientación inicial y el siguiente paso recomendado.</p>
+            <h3>Solicita una conversación inicial</h3>
+            <p>Comparte tu contexto y te responderemos con una lectura preliminar y una recomendación sobre el siguiente paso más razonable.</p>
           </div>
           <div class="field-row">
             <label>Nombre
@@ -1256,10 +1338,38 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   </main>
 
   <footer>
-    <div class="container footer-grid">
-      <img src="/images/logo.webp" alt="AIROTHIX" loading="lazy" />
-      <p>© <span id="year"></span> AIROTHIX. Engineering Digital Growth.</p>
-      <a href="#inicio">Volver arriba ↑</a>
+    <div class="container footer-shell">
+      <div class="footer-brand">
+        <img src="/images/logo.webp" alt="AIROTHIX" loading="lazy" />
+        <div>
+          <strong>AIROTHIX</strong>
+          <p>Desarrollo web, automatización, analítica e inteligencia artificial para empresas que buscan crecer con una base tecnológica sólida.</p>
+        </div>
+      </div>
+
+      <div>
+        <span class="footer-title">NAVEGACIÓN</span>
+        <div class="footer-links">
+          <a href="#soluciones">Soluciones</a>
+          <a href="#metodo">Método</a>
+          <a href="#diagnostico">Diagnóstico</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+
+      <div>
+        <span class="footer-title">CONTACTO</span>
+        <div class="footer-contact">
+          <a href="mailto:contacto@airothix.cl">contacto@airothix.cl</a>
+          <span>Respuesta inicial en menos de 24 horas hábiles.</span>
+          <a href="#inicio">Volver arriba ↑</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> AIROTHIX. Engineering Digital Growth.</span>
+      <span>Soluciones digitales a medida para crecimiento, operación y escala.</span>
     </div>
 </footer>
 
@@ -1385,7 +1495,7 @@ document.getElementById('contact-form').addEventListener('submit', async (event)
   } finally {
     submitButton.disabled = false;
     submitButton.classList.remove('loading');
-    label.textContent = 'Enviar solicitud';
+    label.textContent = 'Solicitar conversación';
   }
 });
 
