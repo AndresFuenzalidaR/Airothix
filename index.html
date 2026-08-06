@@ -102,8 +102,17 @@ button,input,select,textarea{font:inherit}
 .eyebrow{font-size:.75rem;letter-spacing:.2em;color:var(--cyan);font-weight:900}
 .hero h1,.section h2{letter-spacing:-.045em;line-height:1.03;margin:14px 0 22px}
 .hero h1{font-size:clamp(3.3rem,6vw,6.2rem);max-width:830px}
-.hero h1 span{background:linear-gradient(90deg,#63b3ff,var(--cyan));-webkit-background-clip:text;color:transparent}
+.hero h1 span{background:linear-gradient(90deg,#63b3ff,var(--cyan));background-clip:text;-webkit-background-clip:text;color:transparent}
 .hero-copy>p{font-size:1.18rem;line-height:1.7;color:#c1cbe0;max-width:720px}
+.hero-inline-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hero-inline-points span{padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#d9e8ff;font-size:.8rem;font-weight:700}
+.hero-microcopy{margin-top:14px;color:#94b7df;font-size:.92rem;font-weight:700}
+.hero-offer{margin-top:28px;max-width:620px;padding:18px 20px;border-radius:18px;border:1px solid rgba(24,213,255,.16);background:linear-gradient(180deg,rgba(8,23,50,.9),rgba(5,14,30,.94));box-shadow:0 18px 40px rgba(0,0,0,.2)}
+.hero-offer strong{display:block;margin-bottom:10px;font-size:1rem;color:#eef6ff}
+.hero-offer p{margin:0 0 14px;color:#b8c9e4;font-size:.95rem;line-height:1.65}
+.hero-offer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.hero-offer li{display:flex;align-items:flex-start;gap:10px;color:#dce9ff;font-size:.9rem;line-height:1.5}
+.hero-offer li::before{content:"•";color:var(--cyan);font-weight:900;font-size:1rem;line-height:1.3}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 42px}
 .btn{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:0 24px;border-radius:14px;font-weight:850;border:1px solid transparent;cursor:pointer;transition:.25s ease}
 .btn:hover{transform:translateY(-2px)}
@@ -119,6 +128,11 @@ button,input,select,textarea{font:inherit}
 .glass-card span,.glass-card small{display:block;color:#aebbd2;font-size:.72rem}
 .glass-card strong{display:block;font-size:1.8rem;color:var(--cyan);margin:5px 0}
 .glass-a{right:-10px;top:20px}.glass-b{left:-25px;bottom:30px}
+.hero-conversion-card{position:absolute;right:18px;bottom:-25px;max-width:300px;padding:20px 22px;border-radius:22px;background:linear-gradient(180deg,rgba(8,21,45,.94),rgba(4,11,24,.98));border:1px solid rgba(24,213,255,.22);box-shadow:0 22px 50px rgba(0,0,0,.34)}
+.hero-conversion-card span{display:block;color:var(--cyan);font-size:.72rem;letter-spacing:.18em;font-weight:900;margin-bottom:8px}
+.hero-conversion-card h3{margin:0 0 10px;font-size:1.15rem;line-height:1.35}
+.hero-conversion-card p{margin:0 0 14px;color:#b9c9df;font-size:.9rem;line-height:1.6}
+.hero-conversion-card a{display:inline-flex;align-items:center;gap:8px;color:#fff;font-weight:800}
 
 .trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(6,15,32,.78)}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:28px 0}
@@ -126,6 +140,25 @@ button,input,select,textarea{font:inherit}
 .trust-grid div:last-child{border-right:0}
 .trust-grid span{display:block;color:var(--cyan);font-size:.67rem;letter-spacing:.18em;margin-bottom:4px}
 .trust-grid strong{font-size:1rem}
+
+.credibility-section{padding:88px 0 42px;background:linear-gradient(180deg,#020814 0%,#051122 100%)}
+.credibility-head{max-width:760px;margin:0 auto 34px;text-align:center}
+.credibility-head p{color:var(--muted);font-size:1.05rem;line-height:1.75}
+.credibility-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.credibility-card{padding:28px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(13,29,59,.9),rgba(6,16,34,.95));box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.credibility-card strong{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;margin-bottom:18px;background:rgba(24,213,255,.08);border:1px solid rgba(24,213,255,.18);color:var(--cyan);font-size:1.15rem}
+.credibility-card h3{margin:0 0 10px;font-size:1.2rem}
+.credibility-card p{margin:0;color:var(--muted);line-height:1.7}
+
+.conversion-cta-section{padding:40px 0 92px;background:linear-gradient(180deg,#051122 0%,#04101f 100%)}
+.conversion-cta-box{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;padding:32px;border-radius:28px;border:1px solid rgba(24,213,255,.18);background:linear-gradient(135deg,rgba(11,29,62,.92),rgba(6,16,34,.98));box-shadow:0 24px 60px rgba(0,0,0,.24)}
+.conversion-cta-box h2{margin:0 0 14px;font-size:clamp(2rem,3vw,3rem)}
+.conversion-cta-box p{margin:0;color:var(--muted);font-size:1.02rem;line-height:1.75}
+.conversion-cta-points{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.conversion-cta-points li{display:flex;align-items:flex-start;gap:10px;color:#deebff;line-height:1.6}
+.conversion-cta-points li::before{content:"✓";color:var(--cyan);font-weight:900;margin-top:1px}
+.conversion-cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.conversion-cta-note{margin-top:14px;color:#8eb2db;font-size:.9rem;font-weight:700}
 
 .section{padding:110px 0}
 .section-head{max-width:800px;margin-bottom:50px}
@@ -183,12 +216,23 @@ button,input,select,textarea{font:inherit}
 
 .contact-section{background:linear-gradient(180deg,#061124,#020814)}
 .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+.contact-copy-panel{padding:30px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(7,19,42,.88),rgba(3,10,23,.95));border-radius:var(--radius);box-shadow:var(--shadow)}
+.contact-copy-panel h2{margin-bottom:16px}
+.contact-copy-panel p{margin-bottom:20px}
+.contact-benefits{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:12px}
+.contact-benefits li{display:flex;align-items:flex-start;gap:10px;color:#dceaff;line-height:1.6}
+.contact-benefits li::before{content:"✓";color:var(--cyan);font-weight:900;margin-top:1px}
 .email-link{display:inline-block;margin-top:15px;color:var(--cyan);font-size:1.4rem;font-weight:900}
+.contact-meta{margin-top:16px;color:#8fb2da;font-size:.9rem;font-weight:700}
 .contact-form{padding:30px;border:1px solid var(--line);background:rgba(10,23,48,.88);border-radius:var(--radius)}
+.contact-form-head{margin-bottom:22px}
+.contact-form-head h3{margin:0 0 8px;font-size:1.45rem}
+.contact-form-head p{margin:0;color:var(--muted);line-height:1.65}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 label{display:block;font-size:.87rem;font-weight:800;margin-bottom:16px}
 input,select,textarea{width:100%;margin-top:8px;padding:14px 15px;border-radius:12px;border:1px solid var(--line);background:#061329;color:#fff;outline:none}
 input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
+.form-note{margin:14px 0 0;color:#8fb2da;font-size:.88rem;line-height:1.6}
 
 footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
 .footer-grid{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
@@ -201,6 +245,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   .nav-links.open{display:flex}
   .hero-content,.diagnostic-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
   .hero-visual{min-height:420px}
+  .hero-conversion-card{position:relative;right:auto;bottom:auto;max-width:none;margin-top:300px}
   .timeline{grid-template-columns:repeat(2,1fr)}
   .timeline::before{display:none}
 }
@@ -217,6 +262,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
   .hero-visual{min-height:310px}
   .hero-visual>img{inset:35px 0 auto}
   .glass-a{right:0}.glass-b{left:0;bottom:5px}
+  .hero-conversion-card{margin-top:225px;padding:18px}
   .footer-grid{grid-template-columns:1fr;text-align:center}
   .footer-grid p{text-align:center}
   .footer-grid img{margin:auto}
@@ -411,6 +457,11 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
     min-width:82%;
     scroll-snap-align:start;
   }
+}
+
+@media(max-width:980px){
+  .credibility-grid{grid-template-columns:1fr}
+  .conversion-cta-box{grid-template-columns:1fr}
 }
 
 
@@ -793,19 +844,34 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
       <div class="container hero-content">
         <div class="hero-copy">
           <div class="eyebrow">ENGINEERING DIGITAL GROWTH</div>
-          <h1>Ingeniería digital para empresas que quieren <span>crecer de verdad.</span></h1>
+          <h1>Desarrollo web, automatización e IA para empresas que quieren <span>crecer más rápido.</span></h1>
           <p>
-            Diseñamos soluciones web, CRM, automatización, analítica e inteligencia artificial
-            con foco en resultados medibles, experiencia de cliente y escalabilidad.
+            Diseñamos soluciones digitales a medida para mejorar ventas, optimizar procesos y tomar mejores decisiones
+            con una base tecnológica clara, escalable y orientada a resultados reales.
           </p>
+          <div class="hero-inline-points" aria-label="Beneficios principales AIROTHIX">
+            <span>Respuesta en menos de 24 horas</span>
+            <span>Soluciones a medida</span>
+            <span>Acompañamiento real</span>
+          </div>
           <div class="hero-actions">
-            <a href="#diagnostico" class="btn btn-primary">Realizar diagnóstico</a>
-            <a href="#soluciones" class="btn btn-secondary">Explorar soluciones</a>
+            <a href="#diagnostico" class="btn btn-primary">Solicitar diagnóstico</a>
+            <a href="#soluciones" class="btn btn-secondary">Ver soluciones</a>
+          </div>
+          <div class="hero-microcopy">Diagnóstico inicial, propuesta clara y ejecución con foco en negocio.</div>
+          <div class="hero-offer">
+            <strong>Te ayudamos a identificar el mejor siguiente paso, sin vueltas.</strong>
+            <p>Si hoy tu empresa necesita vender más, ordenar procesos o automatizar tareas, podemos orientarte con una recomendación inicial clara.</p>
+            <ul>
+              <li>Primera respuesta en menos de 24 horas hábiles.</li>
+              <li>Diagnóstico preliminar para detectar prioridades reales.</li>
+              <li>Propuesta aterrizada según urgencia, presupuesto y objetivo.</li>
+            </ul>
           </div>
           <div class="hero-proof">
-            <div><strong>01</strong><span>Escuchamos antes de desarrollar</span></div>
-            <div><strong>02</strong><span>Diseñamos para resultados</span></div>
-            <div><strong>03</strong><span>Acompañamos la evolución</span></div>
+            <div><strong>01</strong><span>Entendemos tu operación antes de proponer</span></div>
+            <div><strong>02</strong><span>Construimos con foco en impacto medible</span></div>
+            <div><strong>03</strong><span>Te acompañamos después del lanzamiento</span></div>
           </div>
         </div>
 
@@ -821,16 +887,52 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
             <strong class="counter-ai" data-target="32" data-prefix="+" data-suffix="%">+0%</strong>
             <small>Eficiencia proyectada</small>
           </div>
+          <div class="hero-conversion-card">
+            <span>PRIMER PASO</span>
+            <h3>Cuéntanos tu desafío y te proponemos por dónde empezar.</h3>
+            <p>Web, CRM, automatización, dashboards o IA aplicada: te ayudamos a priorizar sin sobredimensionar la solución.</p>
+            <a href="#contacto">Solicitar conversación <span>↗</span></a>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="trust-strip">
       <div class="container trust-grid">
-        <div><span>TECNOLOGÍA</span><strong>Inteligente</strong></div>
-        <div><span>SOLUCIONES</span><strong>Confiables</strong></div>
-        <div><span>CRECIMIENTO</span><strong>Sostenible</strong></div>
-        <div><span>INNOVACIÓN</span><strong>Continua</strong></div>
+        <div><span>RESULTADO</span><strong>Más claridad comercial</strong></div>
+        <div><span>OPERACIÓN</span><strong>Menos fricción manual</strong></div>
+        <div><span>DECISIONES</span><strong>Más visibilidad con datos</strong></div>
+        <div><span>ESCALA</span><strong>Tecnología lista para crecer</strong></div>
+      </div>
+    </section>
+
+    <section class="credibility-section" aria-labelledby="credibilidad-title">
+      <div class="container">
+        <div class="credibility-head">
+          <span class="eyebrow">POR QUÉ AIROTHIX</span>
+          <h2 id="credibilidad-title">Una ejecución técnica sólida, pensada para resultados de negocio.</h2>
+          <p>No diseñamos soluciones genéricas. Cada proyecto se alinea con tus objetivos comerciales, tus procesos actuales y la capacidad real de crecimiento de tu empresa.</p>
+        </div>
+
+        <div class="credibility-grid">
+          <article class="credibility-card">
+            <strong>01</strong>
+            <h3>Soluciones a medida</h3>
+            <p>Definimos la arquitectura, experiencia y automatización según tu operación, no según una plantilla genérica.</p>
+          </article>
+
+          <article class="credibility-card">
+            <strong>02</strong>
+            <h3>Visión técnica + negocio</h3>
+            <p>Diseñamos pensando en captación, eficiencia, integración de datos y capacidad de escalar sin fricción.</p>
+          </article>
+
+          <article class="credibility-card">
+            <strong>03</strong>
+            <h3>Acompañamiento cercano</h3>
+            <p>Te guiamos desde el diagnóstico inicial hasta la implementación, medición y mejora continua.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -875,6 +977,28 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
     </div>
   </div>
 </section>
+
+    <section class="conversion-cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="conversion-cta-box">
+          <div>
+            <span class="eyebrow">SIGUIENTE PASO</span>
+            <h2 id="cta-title">Si ya sabes que algo debe mejorar, no necesitas partir solo.</h2>
+            <p>Podemos ayudarte a ordenar el problema, priorizar oportunidades y definir una solución realista para tu etapa actual.</p>
+            <div class="conversion-cta-actions">
+              <a href="#contacto" class="btn btn-primary">Quiero una propuesta inicial</a>
+              <a href="#diagnostico" class="btn btn-secondary">Hacer diagnóstico ahora</a>
+            </div>
+            <div class="conversion-cta-note">Sin compromiso. Solo una conversación útil para entender tu caso.</div>
+          </div>
+          <ul class="conversion-cta-points">
+            <li>Te ayudamos a identificar qué conviene resolver primero.</li>
+            <li>Evitas invertir tiempo y presupuesto en herramientas innecesarias.</li>
+            <li>Obtienes una visión inicial sobre alcance, prioridades y siguiente paso.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
 
 <section class="section method-compact-section" id="metodo">
@@ -1067,14 +1191,24 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
 
     <section class="section contact-section" id="contacto">
       <div class="container contact-grid">
-        <div>
+        <div class="contact-copy-panel">
           <span class="eyebrow">CONVERSEMOS</span>
           <h2>Cuéntanos qué quieres transformar.</h2>
-          <p>Describe brevemente tu desafío y prepararemos el primer contacto con AIROTHIX.</p>
+          <p>Te ayudamos a ordenar, automatizar y escalar tus procesos con una propuesta clara, aterrizada y útil para tu negocio.</p>
+          <ul class="contact-benefits">
+            <li>Respuesta inicial en menos de 24 horas hábiles.</li>
+            <li>Diagnóstico preliminar sin costo para entender tu desafío.</li>
+            <li>Propuesta adaptada a tu empresa, industria y nivel de madurez digital.</li>
+          </ul>
           <a class="email-link" href="mailto:contacto@airothix.cl">contacto@airothix.cl</a>
+          <div class="contact-meta">Tus datos se utilizan solo para contactarte y preparar una orientación inicial.</div>
         </div>
 
         <form id="contact-form" class="contact-form" novalidate>
+          <div class="contact-form-head">
+            <h3>Solicita una primera conversación</h3>
+            <p>Cuéntanos brevemente tu desafío y te responderemos con una orientación inicial y el siguiente paso recomendado.</p>
+          </div>
           <div class="field-row">
             <label>Nombre
               <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required />
@@ -1111,9 +1245,10 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted)}
           </div>
 
           <button id="contact-submit" class="btn btn-primary contact-submit" type="submit">
-            <span class="submit-label">Enviar solicitud</span>
+            <span class="submit-label">Solicitar conversación</span>
             <span class="submit-spinner" aria-hidden="true"></span>
           </button>
+          <p class="form-note">Al enviar este formulario, podremos contactarte por correo o teléfono para coordinar el siguiente paso.</p>
           <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
         </form>
       </div>
