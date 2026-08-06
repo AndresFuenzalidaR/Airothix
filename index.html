@@ -268,9 +268,23 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
 .footer-links a,.footer-contact a,.footer-contact span{color:#a6bdd9;font-size:.92rem}
 .footer-links a:hover,.footer-contact a:hover{color:#fff}
 .footer-social{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.footer-social a{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid rgba(24,213,255,.16);background:rgba(255,255,255,.03);color:#d9f8ff;font-size:.88rem;font-weight:700;transition:border-color .25s ease,transform .25s ease,color .25s ease}
-.footer-social a:hover{transform:translateY(-2px);border-color:rgba(24,213,255,.4);color:#fff}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1px solid rgba(24,213,255,.16);background:rgba(255,255,255,.03);color:#d9f8ff;transition:border-color .25s ease,transform .25s ease,color .25s ease,box-shadow .25s ease}
+.footer-social a:hover{transform:translateY(-2px);border-color:rgba(24,213,255,.4);color:#fff;box-shadow:0 10px 20px rgba(0,0,0,.2)}
+.footer-social a:focus-visible{outline:2px solid rgba(24,213,255,.75);outline-offset:2px;border-color:rgba(24,213,255,.45)}
+.footer-social svg{width:20px;height:20px;fill:currentColor}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:#89a0be}
+
+.sr-only{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
 
 @media(max-width:980px){
   .menu-toggle{display:block}
@@ -1369,8 +1383,18 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
           <a href="#inicio">Volver arriba ↑</a>
         </div>
         <div class="footer-social" aria-label="Redes sociales AIROTHIX">
-          <a href="https://www.instagram.com/airothix/" target="_blank" rel="noreferrer noopener" aria-label="Instagram de AIROTHIX">Instagram</a>
-          <a href="https://www.linkedin.com/company/airothix/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn de AIROTHIX">LinkedIn</a>
+          <a href="https://www.instagram.com/airothix/" target="_blank" rel="noreferrer noopener" aria-label="Instagram de AIROTHIX" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5A3.95 3.95 0 0 0 7.75 20.2h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.5a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Z"/>
+            </svg>
+            <span class="sr-only">Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/company/airothix/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn de AIROTHIX" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5.6 3.5a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2ZM3.9 9h3.4v11.5H3.9V9Zm5.8 0h3.2v1.6h.05c.44-.84 1.52-1.73 3.13-1.73 3.35 0 3.97 2.2 3.97 5.06v6.51h-3.4v-5.77c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.23 1.5-2.23 3.06v5.87h-3.4V9Z"/>
+            </svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
         </div>
       </div>
     </div>
