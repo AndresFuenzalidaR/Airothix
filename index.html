@@ -247,6 +247,44 @@ button,input,select,textarea{font:inherit}
 .contact-benefits li::before{content:"✓";color:var(--cyan);font-weight:900;margin-top:1px}
 .email-link{display:inline-block;margin-top:15px;color:var(--cyan);font-size:1.4rem;font-weight:900}
 .contact-meta{margin-top:16px;color:#8fb2da;font-size:.9rem;font-weight:700}
+.whatsapp-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:18px;
+  padding:12px 16px;
+  border:1px solid rgba(37,211,102,.35);
+  border-radius:12px;
+  background:rgba(37,211,102,.1);
+  color:#b8ffd0;
+  font-weight:850;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.whatsapp-link:hover{transform:translateY(-2px);border-color:rgba(37,211,102,.7);background:rgba(37,211,102,.17)}
+.whatsapp-link svg{width:20px;height:20px;fill:currentColor}
+.whatsapp-float{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:45;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 18px;
+  border-radius:999px;
+  background:#25d366;
+  color:#052e16;
+  font-size:.88rem;
+  font-weight:900;
+  box-shadow:0 14px 35px rgba(0,0,0,.3),0 0 24px rgba(37,211,102,.22);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(0,0,0,.36),0 0 30px rgba(37,211,102,.35)}
+.whatsapp-float svg{width:22px;height:22px;fill:currentColor}
+@media(max-width:680px){
+  .whatsapp-float{right:14px;bottom:14px;padding:14px;border-radius:50%}
+  .whatsapp-float span{display:none}
+}
 .contact-form{padding:30px;border:1px solid var(--line);background:rgba(10,23,48,.88);border-radius:var(--radius)}
 .contact-form-head{margin-bottom:22px}
 .contact-form-head h3{margin:0 0 8px;font-size:1.45rem}
@@ -1301,6 +1339,10 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
             <li>Propuesta alineada al nivel de madurez digital de tu empresa.</li>
           </ul>
           <a class="email-link" href="mailto:contacto@airothix.cl">contacto@airothix.cl</a>
+          <a class="whatsapp-link" href="https://wa.me/56995458478?text=Hola%20AIROTHIX%2C%20quiero%20conversar%20sobre%20una%20soluci%C3%B3n%20digital." target="_blank" rel="noreferrer noopener" aria-label="Escribir a AIROTHIX por WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.08 0C5.55 0 .24 5.3.24 11.83c0 2.09.55 4.13 1.59 5.93L.14 24l6.39-1.67a11.82 11.82 0 0 0 5.55 1.41h.01c6.52 0 11.83-5.31 11.83-11.83 0-3.16-1.23-6.13-3.42-8.41ZM12.09 21.7h-.01a9.82 9.82 0 0 1-5-1.37l-.36-.21-3.79.99 1.01-3.69-.23-.38a9.82 9.82 0 1 1 8.38 4.66Zm5.39-7.37c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.75.95-.92 1.14-.17.2-.34.22-.63.07-.29-.15-1.2-.44-2.29-1.41-.85-.76-1.42-1.7-1.59-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.49-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.44s1.04 2.83 1.19 3.02c.15.2 2.04 3.11 4.94 4.36.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34Z"/></svg>
+            Escribir por WhatsApp
+          </a>
           <div class="contact-meta">Tus datos se utilizan únicamente para evaluar el caso y coordinar una conversación inicial.</div>
         </div>
 
@@ -1379,6 +1421,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
         <span class="footer-title">CONTACTO</span>
         <div class="footer-contact">
           <a href="mailto:contacto@airothix.cl">contacto@airothix.cl</a>
+          <a href="https://wa.me/56995458478?text=Hola%20AIROTHIX%2C%20quiero%20conversar%20sobre%20una%20soluci%C3%B3n%20digital." target="_blank" rel="noreferrer noopener">WhatsApp: +56 9 9545 8478</a>
           <span>Respuesta inicial en menos de 24 horas hábiles.</span>
           <a href="#inicio">Volver arriba ↑</a>
         </div>
@@ -1404,6 +1447,11 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
       <span>Soluciones digitales a medida para crecimiento, operación y escala.</span>
     </div>
 </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/56995458478?text=Hola%20AIROTHIX%2C%20quiero%20conversar%20sobre%20una%20soluci%C3%B3n%20digital." target="_blank" rel="noreferrer noopener" aria-label="Abrir conversación con AIROTHIX en WhatsApp" title="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.08 0C5.55 0 .24 5.3.24 11.83c0 2.09.55 4.13 1.59 5.93L.14 24l6.39-1.67a11.82 11.82 0 0 0 5.55 1.41h.01c6.52 0 11.83-5.31 11.83-11.83 0-3.16-1.23-6.13-3.42-8.41ZM12.09 21.7h-.01a9.82 9.82 0 0 1-5-1.37l-.36-.21-3.79.99 1.01-3.69-.23-.38a9.82 9.82 0 1 1 8.38 4.66Zm5.39-7.37c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.75.95-.92 1.14-.17.2-.34.22-.63.07-.29-.15-1.2-.44-2.29-1.41-.85-.76-1.42-1.7-1.59-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.49-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.44s1.04 2.83 1.19 3.02c.15.2 2.04 3.11 4.94 4.36.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34Z"/></svg>
+    <span>WhatsApp</span>
+  </a>
 
   <script>
 
