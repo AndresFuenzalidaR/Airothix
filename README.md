@@ -33,6 +33,15 @@ Configura estas variables en Vercel:
 
 En Meta, configura el webhook como `https://www.airothix.cl/api/whatsapp`, usa el mismo `WHATSAPP_VERIFY_TOKEN` y suscribe el campo `messages`.
 
+## Chat del sitio web
+
+El sitio incluye un asistente comercial que responde mediante OpenAI. Configura en Vercel:
+
+- `OPENAI_API_KEY`: clave de OpenAI (se usa únicamente desde la función del servidor).
+- `OPENAI_MODEL`: opcional; por defecto `gpt-4o-mini`.
+
+El endpoint es `/api/chat`. Sin `OPENAI_API_KEY`, el chat informa que no está configurado y mantiene visible la alternativa de contacto por WhatsApp.
+
 ## Requisito en Resend
 El dominio usado en `RESEND_FROM_EMAIL` debe estar verificado en Resend.
 Si `airothix.cl` todavía no está verificado, entra a Resend → Domains y completa SPF y DKIM.

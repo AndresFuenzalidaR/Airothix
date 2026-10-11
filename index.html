@@ -285,6 +285,44 @@ button,input,select,textarea{font:inherit}
   .whatsapp-float{right:14px;bottom:14px;padding:14px;border-radius:50%}
   .whatsapp-float span{display:none}
 }
+.chat-widget{position:fixed;right:22px;bottom:92px;z-index:46;font-family:inherit}
+.chat-toggle{
+  width:58px;height:58px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.24);
+  border-radius:50%;background:linear-gradient(135deg,#18d5ff,#1d78ff);color:#04101e;
+  box-shadow:0 14px 35px rgba(0,0,0,.38),0 0 25px rgba(24,213,255,.24);cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease
+}
+.chat-toggle:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(0,0,0,.42),0 0 30px rgba(24,213,255,.34)}
+.chat-toggle svg{width:25px;height:25px;fill:currentColor}
+.chat-panel{
+  position:absolute;right:0;bottom:72px;width:min(380px,calc(100vw - 28px));height:min(520px,calc(100dvh - 180px));
+  min-height:360px;display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(70,152,255,.3);
+  border-radius:20px;background:#071225;box-shadow:0 24px 70px rgba(0,0,0,.55)
+}
+.chat-panel[hidden]{display:none}
+.chat-header{display:flex;align-items:center;gap:12px;padding:16px 18px;background:linear-gradient(120deg,#0d47d9,#087eae)}
+.chat-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.16);font-weight:900}
+.chat-header-copy{flex:1;min-width:0}
+.chat-header-copy strong{display:block;font-size:.95rem}
+.chat-header-copy span{display:block;margin-top:3px;color:#d5f7ff;font-size:.76rem}
+.chat-close{width:36px;height:36px;border:0;border-radius:10px;background:rgba(255,255,255,.12);color:#fff;font-size:1.35rem;cursor:pointer}
+.chat-messages{flex:1;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:18px 14px;scroll-behavior:smooth}
+.chat-message{max-width:88%;padding:11px 13px;border:1px solid rgba(70,152,255,.18);border-radius:14px;background:#0d1d35;color:#edf5ff;font-size:.88rem;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-message.user{align-self:flex-end;border-color:rgba(24,213,255,.28);background:#103454}
+.chat-message.assistant{align-self:flex-start}
+.chat-message.error{border-color:rgba(255,96,118,.32);color:#ffc0c8}
+.chat-typing{align-self:flex-start;color:#aab7cf;font-size:.82rem}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(70,152,255,.18)}
+.chat-input{flex:1;min-width:0;margin:0;padding:12px 13px;border-radius:12px;font:inherit;font-size:.88rem}
+.chat-send{width:46px;flex:none;border:0;border-radius:12px;background:var(--cyan);color:#04101e;font-size:1.2rem;font-weight:900;cursor:pointer}
+.chat-send:disabled,.chat-input:disabled{opacity:.6;cursor:wait}
+.chat-contact{padding:0 14px 12px;color:#aab7cf;text-align:center;font-size:.75rem}
+.chat-contact a{color:#7fdfff;text-decoration:underline}
+@media(max-width:680px){
+  .chat-widget{right:14px;bottom:78px}
+  .chat-panel{right:0;bottom:68px;height:min(520px,calc(100dvh - 165px));min-height:320px}
+}
+@media(prefers-reduced-motion:reduce){.chat-toggle,.chat-messages{scroll-behavior:auto;transition:none}}
 .contact-form{padding:30px;border:1px solid var(--line);background:rgba(10,23,48,.88);border-radius:var(--radius)}
 .contact-form-head{margin-bottom:22px}
 .contact-form-head h3{margin:0 0 8px;font-size:1.45rem}
@@ -1453,6 +1491,30 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
     <span>WhatsApp</span>
   </a>
 
+  <section class="chat-widget" aria-label="Chat de AIROTHIX">
+    <div id="chat-panel" class="chat-panel" role="dialog" aria-label="Asistente virtual de AIROTHIX" aria-modal="false" hidden>
+      <div class="chat-header">
+        <div class="chat-avatar" aria-hidden="true">A</div>
+        <div class="chat-header-copy">
+          <strong>Asistente AIROTHIX</strong>
+          <span>Cuéntame sobre tu desafío digital</span>
+        </div>
+        <button id="chat-close" class="chat-close" type="button" aria-label="Cerrar chat">×</button>
+      </div>
+      <div id="chat-messages" class="chat-messages" role="log" aria-live="polite" aria-relevant="additions text">
+        <div class="chat-message assistant">¡Hola! Soy el asistente de AIROTHIX. ¿Qué te gustaría mejorar en tu negocio?</div>
+      </div>
+      <div class="chat-contact">¿Prefieres hablar con una persona? <a href="https://wa.me/56995458478?text=Hola%20AIROTHIX%2C%20quiero%20conversar%20sobre%20una%20soluci%C3%B3n%20digital." target="_blank" rel="noreferrer noopener">Escríbenos por WhatsApp</a>.</div>
+      <form id="chat-form" class="chat-form">
+        <input id="chat-input" class="chat-input" type="text" maxlength="1500" autocomplete="off" placeholder="Escribe tu mensaje..." aria-label="Tu mensaje" required>
+        <button id="chat-send" class="chat-send" type="submit" aria-label="Enviar mensaje">↑</button>
+      </form>
+    </div>
+    <button id="chat-toggle" class="chat-toggle" type="button" aria-label="Abrir chat de AIROTHIX" aria-expanded="false" aria-controls="chat-panel" title="Chatea con AIROTHIX">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5.2L9 22v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm1 5v2h14V9H5Zm0 4v2h9v-2H5Z"/></svg>
+    </button>
+  </section>
+
   <script>
 
 const toggle = document.querySelector('.menu-toggle');
@@ -1576,6 +1638,80 @@ document.getElementById('contact-form').addEventListener('submit', async (event)
     submitButton.disabled = false;
     submitButton.classList.remove('loading');
     label.textContent = 'Solicitar conversación';
+  }
+});
+
+const chatPanel = document.getElementById('chat-panel');
+const chatToggle = document.getElementById('chat-toggle');
+const chatClose = document.getElementById('chat-close');
+const chatMessages = document.getElementById('chat-messages');
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatSend = document.getElementById('chat-send');
+const chatHistory = [];
+let chatIsSending = false;
+
+function setChatOpen(open) {
+  chatPanel.hidden = !open;
+  chatToggle.setAttribute('aria-expanded', String(open));
+  chatToggle.setAttribute('aria-label', open ? 'Cerrar chat de AIROTHIX' : 'Abrir chat de AIROTHIX');
+  if (open) chatInput.focus();
+  else chatToggle.focus();
+}
+
+function addChatMessage(role, text, isError = false) {
+  const message = document.createElement('div');
+  message.className = `chat-message ${role}${isError ? ' error' : ''}`;
+  message.textContent = text;
+  chatMessages.append(message);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatToggle.addEventListener('click', () => setChatOpen(chatPanel.hidden));
+chatClose.addEventListener('click', () => setChatOpen(false));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !chatPanel.hidden) setChatOpen(false);
+});
+
+chatForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const text = chatInput.value.trim();
+  if (!text || chatIsSending) return;
+
+  chatHistory.push({ role: 'user', content: text });
+  addChatMessage('user', text);
+  chatInput.value = '';
+  chatIsSending = true;
+  chatInput.disabled = true;
+  chatSend.disabled = true;
+  const typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.textContent = 'AIROTHIX está escribiendo...';
+  chatMessages.append(typing);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: chatHistory.slice(-10) })
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.message || 'No fue posible responder. Intenta nuevamente.');
+
+    const reply = typeof result.reply === 'string' ? result.reply.trim() : '';
+    if (!reply) throw new Error('No recibimos una respuesta. Intenta nuevamente.');
+    chatHistory.push({ role: 'assistant', content: reply });
+    addChatMessage('assistant', reply);
+  } catch (error) {
+    console.error('Error en el chat AIROTHIX:', error);
+    addChatMessage('assistant', error.message || 'No pudimos responder en este momento. Escríbenos por WhatsApp.', true);
+  } finally {
+    typing.remove();
+    chatIsSending = false;
+    chatInput.disabled = false;
+    chatSend.disabled = false;
+    chatInput.focus();
   }
 });
 
