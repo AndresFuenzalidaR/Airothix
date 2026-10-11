@@ -11,17 +11,6 @@
 
   <meta name="description" content="AIROTHIX diseña soluciones digitales, automatizaciones, CRM, analítica e inteligencia artificial para empresas que buscan crecer." />
   <meta name="theme-color" content="#020814" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- TODO: reemplazar G-XXXXXXXXXX con el Measurement ID real de GA4 (analytics.google.com) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
   <meta property="og:title" content="AIROTHIX | Engineering Digital Growth" />
   <meta property="og:description" content="Tecnología que impulsa el crecimiento de tu negocio." />
   <meta property="og:type" content="website" />
@@ -332,6 +321,9 @@ button,input,select,textarea{font:inherit}
 label{display:block;font-size:.87rem;font-weight:800;margin-bottom:16px}
 input,select,textarea{width:100%;margin-top:8px;padding:14px 15px;border-radius:12px;border:1px solid var(--line);background:#061329;color:#fff;outline:none}
 input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
+.privacy-consent{display:flex;align-items:flex-start;gap:10px;margin:18px 0 0;color:#bfcee3;font-size:.86rem;font-weight:500;line-height:1.5}
+.privacy-consent input{width:18px;height:18px;flex:none;margin:3px 0 0;padding:0;accent-color:var(--cyan)}
+.privacy-consent a{color:#7fdfff;text-decoration:underline;text-underline-offset:3px}
 .form-note{margin:14px 0 0;color:#8fb2da;font-size:.88rem;line-height:1.6}
 
 footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);background:linear-gradient(180deg,#020814,#040d1a)}
@@ -350,6 +342,23 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
 .footer-social a:focus-visible{outline:2px solid rgba(24,213,255,.75);outline-offset:2px;border-color:rgba(24,213,255,.45)}
 .footer-social svg{width:20px;height:20px;fill:currentColor}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:#89a0be}
+.legal-footer-links{display:flex;flex-wrap:wrap;gap:14px}
+.legal-footer-links a,.cookie-preferences-link{color:#a6bdd9;font-size:.82rem}
+.legal-footer-links a:hover,.cookie-preferences-link:hover{color:#fff}
+.cookie-preferences-link{padding:0;border:0;background:none;font:inherit;cursor:pointer;text-decoration:underline}
+.cookie-banner{
+  position:fixed;right:16px;bottom:16px;left:16px;z-index:70;width:min(760px,calc(100% - 32px));margin:0 auto;
+  padding:20px;border:1px solid rgba(70,152,255,.36);border-radius:18px;background:#0a1730;
+  box-shadow:0 18px 60px rgba(0,0,0,.58);color:var(--text)
+}
+.cookie-banner[hidden]{display:none}
+.cookie-banner h2{margin:0 0 8px;font-size:1.05rem}
+.cookie-banner p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.6}
+.cookie-banner a{color:#7fdfff;text-decoration:underline}
+.cookie-banner-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
+.cookie-banner-actions button{min-height:42px;padding:9px 15px;border:1px solid rgba(127,223,255,.44);border-radius:11px;background:transparent;color:#edf5ff;font:inherit;font-size:.87rem;font-weight:800;cursor:pointer}
+.cookie-banner-actions button:first-child{border-color:transparent;background:var(--cyan);color:#04101e}
+.cookie-banner-actions button:focus-visible,.cookie-preferences-link:focus-visible{outline:2px solid #7fdfff;outline-offset:3px}
 
 .sr-only{
   position:absolute!important;
@@ -1425,11 +1434,15 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
             <label>Sitio web<input id="website" name="website" type="text" tabindex="-1" autocomplete="off" /></label>
           </div>
 
+          <label class="privacy-consent">
+            <input id="privacy-consent" name="privacyConsent" type="checkbox" required />
+            <span>Autorizo el uso de mis datos para responder esta solicitud. Leí la <a href="/privacidad" target="_blank" rel="noreferrer noopener">Política de privacidad</a>.</span>
+          </label>
+          <p class="form-note">Usaremos tus datos para responder esta solicitud y coordinar el siguiente paso. No los utilizaremos para enviarte publicidad sin tu autorización.</p>
           <button id="contact-submit" class="btn btn-primary contact-submit" type="submit">
             <span class="submit-label">Solicitar conversación</span>
             <span class="submit-spinner" aria-hidden="true"></span>
           </button>
-          <p class="form-note">Al enviar este formulario, podremos contactarte por correo o teléfono para coordinar el siguiente paso.</p>
           <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -1453,6 +1466,10 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
           <a href="#metodo">Método</a>
           <a href="#diagnostico">Diagnóstico</a>
           <a href="#contacto">Contacto</a>
+          <a href="/privacidad">Política de privacidad</a>
+          <a href="/terminos">Términos y condiciones</a>
+          <a href="/cookies">Política de cookies</a>
+          <button id="cookie-preferences" class="cookie-preferences-link" type="button">Preferencias de cookies</button>
         </div>
       </div>
 
@@ -1486,6 +1503,15 @@ footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);backgr
       <span>Soluciones digitales a medida para crecimiento, operación y escala.</span>
     </div>
 </footer>
+
+  <aside id="cookie-banner" class="cookie-banner" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-copy" hidden>
+    <h2 id="cookie-banner-title">Tu privacidad importa</h2>
+    <p id="cookie-banner-copy">Usamos almacenamiento esencial para recordar tu elección. La analítica opcional solo se activará si la aceptas. Puedes cambiar tu decisión en cualquier momento desde <a href="/cookies">Política de cookies</a>.</p>
+    <div class="cookie-banner-actions">
+      <button id="cookie-accept" type="button">Aceptar analíticas</button>
+      <button id="cookie-reject" type="button">Rechazar analíticas</button>
+    </div>
+  </aside>
 
   <a class="whatsapp-float" href="https://wa.me/56995458478?text=Hola%20AIROTHIX%2C%20quiero%20conversar%20sobre%20una%20soluci%C3%B3n%20digital." target="_blank" rel="noreferrer noopener" aria-label="Abrir conversación con AIROTHIX en WhatsApp" title="Escribir por WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.08 0C5.55 0 .24 5.3.24 11.83c0 2.09.55 4.13 1.59 5.93L.14 24l6.39-1.67a11.82 11.82 0 0 0 5.55 1.41h.01c6.52 0 11.83-5.31 11.83-11.83 0-3.16-1.23-6.13-3.42-8.41ZM12.09 21.7h-.01a9.82 9.82 0 0 1-5-1.37l-.36-.21-3.79.99 1.01-3.69-.23-.38a9.82 9.82 0 1 1 8.38 4.66Zm5.39-7.37c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.75.95-.92 1.14-.17.2-.34.22-.63.07-.29-.15-1.2-.44-2.29-1.41-.85-.76-1.42-1.7-1.59-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.49-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.44s1.04 2.83 1.19 3.02c.15.2 2.04 3.11 4.94 4.36.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34Z"/></svg>
@@ -1526,6 +1552,92 @@ toggle.addEventListener('click', () => {
 });
 document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Add a real GA4 measurement ID here only if analytics is enabled for the site.
+const GA_MEASUREMENT_ID = '';
+const COOKIE_CONSENT_KEY = 'airothix-cookie-consent-v1';
+const COOKIE_CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
+const cookieBanner = document.getElementById('cookie-banner');
+
+function loadAnalytics() {
+  if (!/^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID) || window.gtag) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){window.dataLayer.push(arguments);};
+  window.gtag('js', new Date());
+  window.gtag('config', GA_MEASUREMENT_ID);
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_MEASUREMENT_ID)}`;
+  script.onerror = () => console.error('No se pudo cargar Google Analytics.');
+  document.head.append(script);
+}
+
+function getCookieConsent() {
+  try {
+    const consent = JSON.parse(localStorage.getItem(COOKIE_CONSENT_KEY) || 'null');
+    if (!consent || typeof consent.analytics !== 'boolean' || !Number.isFinite(consent.updatedAt)) return null;
+    if (Date.now() - consent.updatedAt > COOKIE_CONSENT_MAX_AGE) {
+      localStorage.removeItem(COOKIE_CONSENT_KEY);
+      clearAnalyticsCookies();
+      return null;
+    }
+    return consent;
+  } catch (error) {
+    console.error('No se pudo leer la preferencia de cookies:', error);
+    return null;
+  }
+}
+
+function clearAnalyticsCookies() {
+  const cookieNames = document.cookie.split(';')
+    .map(cookie => cookie.trim().split('=')[0])
+    .filter(name => /^_ga(?:_|$)/.test(name));
+  const hostParts = window.location.hostname.split('.');
+  const domains = [null];
+  if (hostParts.length > 2) domains.push(`.${hostParts.slice(-2).join('.')}`);
+
+  cookieNames.forEach(name => {
+    domains.forEach(domain => {
+      const domainAttribute = domain ? `; domain=${domain}` : '';
+      document.cookie = `${name}=; Max-Age=0; path=/${domainAttribute}; SameSite=Lax`;
+    });
+  });
+}
+
+function saveCookieConsent(analytics) {
+  const previousConsent = getCookieConsent();
+  let stored = false;
+  try {
+    localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify({ analytics, updatedAt: Date.now() }));
+    stored = true;
+  } catch (error) {
+    console.error('No se pudo guardar la preferencia de cookies:', error);
+  }
+  cookieBanner.hidden = true;
+  if (analytics) loadAnalytics();
+  else {
+    clearAnalyticsCookies();
+    if (stored && previousConsent?.analytics && window.gtag) window.location.reload();
+  }
+}
+
+function showCookiePreferences() {
+  cookieBanner.hidden = false;
+  document.getElementById('cookie-accept').focus();
+}
+
+const savedCookieConsent = getCookieConsent();
+if (savedCookieConsent) {
+  cookieBanner.hidden = true;
+  if (savedCookieConsent.analytics) loadAnalytics();
+} else {
+  cookieBanner.hidden = false;
+}
+document.getElementById('cookie-accept').addEventListener('click', () => saveCookieConsent(true));
+document.getElementById('cookie-reject').addEventListener('click', () => saveCookieConsent(false));
+document.getElementById('cookie-preferences').addEventListener('click', showCookiePreferences);
 
 const blocks = [...document.querySelectorAll('.question-block')];
 const progress = document.getElementById('progress-bar');
@@ -1604,7 +1716,8 @@ document.getElementById('contact-form').addEventListener('submit', async (event)
     phone: document.getElementById('phone').value.trim(),
     need: document.getElementById('need').value,
     message: document.getElementById('message').value.trim(),
-    website: document.getElementById('website').value
+    website: document.getElementById('website').value,
+    privacyConsent: document.getElementById('privacy-consent').checked
   };
 
   submitButton.disabled = true;

@@ -37,6 +37,10 @@ export async function POST(request) {
       return json({ ok: true });
     }
 
+    if (body?.privacyConsent !== true) {
+      return json({ message: 'Debes autorizar el uso de tus datos para enviar la solicitud.' }, 400);
+    }
+
     const data = {
       name: clean(body.name, 100),
       company: clean(body.company, 120),

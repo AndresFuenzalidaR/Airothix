@@ -37,6 +37,15 @@ En Meta, configura el webhook como `https://www.airothix.cl/api/whatsapp`, usa e
 
 El sitio incluye un asistente comercial de respuestas frecuentes sobre desarrollo web, automatización, CRM, analítica, inteligencia artificial, precios y contacto. No necesita una clave de API ni configuración adicional en Vercel. El endpoint `/api/chat` entrega respuestas predefinidas y deriva consultas específicas al formulario, correo o WhatsApp.
 
+## Políticas y consentimiento
+
+- `/privacidad`, `/terminos` y `/cookies` publican las políticas del sitio.
+- El formulario requiere autorización expresa antes de enviar datos personales; `/api/contact` también la valida.
+- La analítica opcional permanece bloqueada hasta que la persona la acepta. Actualmente no hay un ID válido de Google Analytics configurado; para habilitarlo, establecer un ID real en `GA_MEASUREMENT_ID` dentro de `index.html` y mantener el consentimiento previo.
+- La decisión se guarda en el almacenamiento local del navegador por hasta 180 días. El enlace de preferencias del pie de página permite cambiarla.
+
+Las políticas reflejan la información disponible sobre el sitio y sus proveedores. Deben revisarse con asesoría legal antes de usarlas como cumplimiento jurídico definitivo, especialmente al cambiar datos, servicios o proveedores.
+
 ## Requisito en Resend
 El dominio usado en `RESEND_FROM_EMAIL` debe estar verificado en Resend.
 Si `airothix.cl` todavía no está verificado, entra a Resend → Domains y completa SPF y DKIM.
